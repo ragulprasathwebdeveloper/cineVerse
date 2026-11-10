@@ -1,0 +1,190 @@
+.accordion-gallery{
+    padding: 60px 5%;
+    background: radial-gradient(
+            ellipse at top,
+            rgba(110, 20, 45, 0.16),
+            transparent 60%
+        ), #101014;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.accordion-title{
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    width: 80%;
+    margin: 0 auto 30px;
+}
+
+.accordion-title::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background: #2dff34;
+}
+
+.accordion-container{
+    display: flex;
+    gap: 12px;
+    width: 80%;
+    max-width: none;
+    min-height: 650px;
+    margin: 0 auto 30px;
+    align-items: stretch;
+}
+
+.accordion-panel{
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #24242b;
+    cursor: pointer;
+    isolation: isolate;
+    box-shadow: 0 0 0 rgba(255, 45, 85, 0);
+    transition: flex 0.5s ease, box-shadow 0.4s ease;
+}
+
+.accordion-panel:nth-child(3){
+    flex: 3;
+    box-shadow: 0 0 18px rgba(255, 45, 85, 0.25);         
+}
+
+.accordion-container:hover .accordion-panel{
+    flex: 1;   
+    box-shadow: 0 0 0 rgba(255, 45, 85, 0); 
+}
+
+.accordion-container .accordion-panel:hover{
+    flex: 3;
+    box-shadow: 0 0 24px rgba(255, 45, 85, 0.4);
+}
+
+.accordion-panel::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95),
+        rgba(0, 0, 0, 0.05) 75%
+    );
+    z-index: -1;
+}
+
+.accordion-overlay{
+    position: absolute;
+    left: 16px;
+    right: 12px;
+    bottom: 18px;
+    color: white;
+}
+
+.accordion-overlay h3{
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+.accordion-overlay p{
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
+
+.accordion-details{
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    max-width: 420px;
+}
+
+.accordion-plot{
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.accordion-panel:nth-child(3) .accordion-details{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-container:hover .accordion-details{
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.accordion-container .accordion-panel:hover .accordion-details{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px){
+    .accordion-container{
+        width: 90%;
+        min-height: 500px;
+        gap: 8px;
+    }
+    .accordion-panel{
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 600px){
+    .accordion-gallery{
+        padding: 35px 16px;
+    }
+    .accordion-title{
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .accordion-container{
+        width: 100%;
+        min-height: 420px;
+        margin: 0 auto 30px;
+        gap: 6px;
+    }
+    .accordion-panel{
+        min-height: 420px;
+        border-radius: 8px;
+    }
+    .accordion-overlay{
+        left: 6px;
+        right: 6px;
+        bottom: 12px;
+    }
+    .accordion-overlay h3{
+        font-size: 0.75rem;
+        overflow-wrap: anywhere;
+    }
+    .accordion-details p{
+        font-size: 0.7rem;
+    }
+}
+
+/* @media (hover:none){
+    .accordion-container:hover .accordion-panel{
+        flex: 1;
+    }
+    .accordion-container .accordion-panel:hover{
+        flex: 1;
+    }
+    .accordion-panel:first-child{
+        flex: 3;
+    }
+} */

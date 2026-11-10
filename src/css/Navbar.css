@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 18px 5%;
+  background: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(140, 255, 170, 0.15);
+}
+
+.website-name {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 26px;
+  white-space: nowrap;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar-link a {
+  position: relative;
+  text-decoration: none;
+  color: #b3b3b3;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.navbar-link a:hover,
+.navbar-link a.active {
+  color: aqua;
+}
+
+.navbar-search {
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 15px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  outline: none;
+  background: #1c1c24;
+  color: white;
+}
+
+.navbar-search input:focus {
+  border-color: aqua;
+  box-shadow: 0 0 8px rgba(9, 189, 229, 0.25);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.mobile-links {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    padding: 16px 5%;
+  }
+
+  .website-name {
+    font-size: 21px;
+  }
+
+  .desktop-links {
+    display: none;
+  }
+
+  .navbar-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+  }
+
+  .navbar-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    grid-row: 3;
+    padding: 8px 0;
+    border-top: 1px solid #292929;
+  }
+
+  .mobile-links a {
+    padding: 14px 10px;
+    border-radius: 6px;
+  }
+
+  .mobile-links a:hover,
+  .mobile-links a.active {
+    background: #1c1c24;
+    color: aqua;
+  }
+}
