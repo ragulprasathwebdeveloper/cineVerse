@@ -1,4 +1,4 @@
-const API_KEY = import.meta.env.YOUTUBE_API_KEY;
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
 export async function searchMovieTrailer(title, year) {
   try {
@@ -18,12 +18,13 @@ export async function searchMovieTrailer(title, year) {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error("YouTube API request failed");
+      console.error("YouTube API error:", data.error);
+      throw new Error(data.error?.message || "YouTube API request failed");
     }
 
     const data = await response.json();
 
-    return data.items;
+    return data.items || [];
   } catch (error) {
     console.error("Trailer search error:", error);
     return [];
