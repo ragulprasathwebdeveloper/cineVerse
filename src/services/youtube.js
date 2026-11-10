@@ -27,6 +27,7 @@ export async function searchMovieTrailer(title, year) {
     return data.items || [];
   } catch (error) {
     console.error("Trailer search error:", error);
+    console.log("YouTube API key loaded:", Boolean(API_KEY));
     return [];
   }
 }
