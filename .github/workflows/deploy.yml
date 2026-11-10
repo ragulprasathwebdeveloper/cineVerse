@@ -32,6 +32,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_OMDB_API_KEY: ${{ secrets.VITE_OMDB_API_KEY }}
+          VITE_YOUTUBE_API_KEY: ${{ secrets.VITE_YOUTUBE_API_KEY }}
 
       - name: Upload build
         uses: actions/upload-pages-artifact@v3
